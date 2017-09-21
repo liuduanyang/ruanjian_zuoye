@@ -69,7 +69,8 @@
 height:100px;
 }
 #header_crumb p{
-margin-left:115px;
+margin:0 115px;
+width:100%;
 line-height:100px;
 }
 #header_crumb p a{
@@ -146,7 +147,6 @@ border-bottom:4px solid rgb(28,80,128);
 }
 .center_white div ul{
     overflow: hidden;
-    vertical-align:center;
 }
 .center_white ul li{
 list-style:none;
@@ -310,7 +310,7 @@ line-height:50px;
 border-bottom:1px solid white;
 }
 .lista{
-position: absolute;
+position: fixed;
 right:0px;
 top:150px;
 }
