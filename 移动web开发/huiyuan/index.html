@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="rem.js"></script>
+<style>
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    width:100%;
+    margin:0 auto;
+}    
+header{
+    height:1.45rem;
+    background-color:#3c3c3c;
+    color:white;
+    font-size:0.6rem;
+    line-height:1.45rem;
+    padding-left:0.4rem;
+    overflow:hidden;
+}
+.headerClose{
+    display: inline-block;
+    height: 1.45rem;
+    text-align:center;
+    padding-right:0.46rem;
+    border-right:1px solid rgb(48,48,48);
+}
+.headerInfo{
+    display:inline-block;
+    height: 1.45rem;
+    padding-left:0.46rem;
+}
+.headerMore{
+    height: 0.6rem;
+    width:0.7rem;
+    float:right;
+    margin-right:0.4rem;
+    background-image:url('images/more.png');
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    margin-top:0.42rem;
+}
+
+.cen{
+    height:17rem;
+    background:linear-gradient(#b04c92,#5c6193);
+    padding:0.37rem 0.4rem 0.8rem 0;
+    font-size:0.4rem;
+    color:white;
+    overflow:hidden;
+}
+.cenA{
+    background-color:rgba(255,255,255,0.26);
+    width:4.8rem;
+    height:5.13rem;
+    float:left;
+    border-radius:0.2rem;
+    margin-left:0.4rem;
+    margin-top:0.4rem;
+}
+.cen .cenM{
+    width:10rem;
+}
+.cenImgTopM{
+    width:4.25rem;
+    height:4.25rem;
+}
+.cenImgBotM{
+    width:0.9rem;
+    height:0.9rem;    
+}
+.cenA div{
+    text-align: center;
+    margin:0 auto;
+}
+.cenA p{
+    margin:0.2rem 0;
+}
+
+.xgmm{
+    padding:0.3rem 0.3rem 0.3rem 0.6rem;
+    font-size:0.4rem;
+    color:white;
+    background-color:rgb(243,109,160);
+    border-top-left-radius:0.5rem;
+    border-bottom-left-radius:0.5rem;
+    position: absolute;
+    right:0;
+    top:1.7rem;
+}
+.cen .cenImgTop{
+    width:2.8rem;
+    height:2.8rem;
+    margin-top:0.25rem;
+}
+.cen .cenImgBot{
+    width:0.9rem;
+    height:0.9rem;
+}
+.cenM{
+    overflow: hidden;
+}
+.cenM div:nth-child(1){
+    margin-left:1.8rem;
+}
+.cenM img{
+    float:left;
+}
+.cenM .cenMM{
+    margin-top:1rem;
+    height:5.13rem;
+    float:left;
+}
+
+</style>
+</head>
+<body>
+<div class="xgmm">
+    修改密码
+</div>
+
+<header>
+    <span class="headerClose">X</span>
+    <span class="headerInfo">个人中心</span>
+    <span class="headerMore"></span>
+</header>
+<div class="cen">
+    <div class="cenA">
+        <div>
+            <img class="cenImgTop" src="images/VIPimage01.png" alt="">
+            <p>健康体验预约</p>
+            <img class="cenImgBot" src="images/appointment_icon.png" alt="">
+        </div>
+    </div>
+    <div class="cenA">
+            <div>
+                    <img class="cenImgTop" src="images/VIPimage02.png" alt="">
+                    <p>专家诊疗预约</p>
+                    <img class="cenImgBot" src="images/appointment_icon.png" alt="">
+            </div>
+    </div>
+    <div class="cenA cenM">
+            <div>
+                    <img class="cenImgTopM" src="images/VIPimage03.png" alt="">
+                <div class="cenMM">
+                    <p>专家诊疗预约</p> 
+                    <img class="cenImgBotM" src="images/appointment_ icon_on.png" alt="">
+                </div>
+            </div>        
+    </div>
+    <div class="cenA">
+            <div>
+                    <img class="cenImgTop" src="images/VIPimage04.png" alt="">
+                    <p>住院关怀预约</p>
+                    <img class="cenImgBot" src="images/appointment_icon.png" alt="">
+            </div>  
+    </div>
+    <div class="cenA">
+            <div>
+                    <img class="cenImgTop" src="images/VIPimage05.png" alt="">
+                    <p>消费明细查询</p>
+                    <img class="cenImgBot" src="images/search_icon.png" alt="">
+            </div>  
+    </div>
+</div>
+</body>
+</html>
