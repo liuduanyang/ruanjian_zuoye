@@ -53,7 +53,9 @@ header{
 .cIa{
     margin-right:0.21rem;
 }
-
+.hot{
+    margin-bottom:0.98rem;
+}
 .hotT{
     font-size:0.28rem;
     border-left:0.08rem solid  rgb(63,204,203);
