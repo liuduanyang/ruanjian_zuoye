@@ -21,3 +21,7 @@ input.oninput=function(){
     body.appendChild(node);
     body.removeChild(node);
 }
+
+button.onclick=function(){
+    window.open("https://www.baidu.com/s?wd="+input.value);
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>    
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <title>page for QQ</title>
+    <style>
+        .ui-bar-c{
+            background-color:#3299cc;
+            color:white;
+        }
+        .header_h3{
+            font-weight:100;
+        }
+        .ui-icon-tx{
+            background-image:url('images/kt.jpg');
+            background-size:100% 100%;
+            background-repeat:no-repeat;
+        }
+        .ui-li-count{
+            background-color:red !important;
+            border:0px solid #ccc;
+            border-radius:15px;
+            color:white !important;
+        }
+        .content_xx a img{
+            border:1px solid #ccc !important;
+            border-radius:40px !important;
+            width:60px;
+            height:60px;
+            margin-top:10px;
+            margin-left:10px;
+        }
+        .footer{
+            padding:0;
+            margin:0;
+        }
+
+    </style>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="c" data-position="fixed">
+            <a href="#" data-role="button" data-iconpos="notext" data-icon="tx"></a>
+            <h3 class="header_h3">消息</h3>
+            <a href="#" data-role="button" data-iconpos="notext" data-icon="plus"></a>
+        </div>
+
+        <div data-role="content">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="搜索" class="content_xx">
+                <li>
+                    <a href="#">
+                        <img src="images/tx1.jpg" alt="">
+                        <h2>517宿舍群</h2>
+                        <p>落日黄沙:[图片][图片]</p>
+                        <span class="ui-li-count">99+</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                            <img src="images/tempCropped.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                            <img src="images/tx2.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/tx3.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">10</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/tx4.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/tx5.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/tx6.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">15</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/tx1.jpg" alt="">
+                        <h2>15-马院-匆匆</h2>
+                        <p>哈哈哈</p>
+                        <span class="ui-li-count">5</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">消息</a></li>
+                    <li><a href="#" data-icon="info">联系人</a></li>
+                    <li><a href="#" data-icon="star">动态</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

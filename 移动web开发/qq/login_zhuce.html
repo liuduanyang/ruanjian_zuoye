@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>    
+    <script src="js/jquery-2.2.2.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <title>注册 | 登录</title>
+    <style>
+        .page{
+            background-image:url('images/bk0.gif');
+            background-size:100% 100%;
+        }
+        *{
+            color:white;
+            font-weight:100 !important;
+        }
+        .content label{
+            margin-top:20px;
+        }
+        .sub{
+            margin-top:30px;
+        }
+        .content{
+            padding-top:150px;
+        }
+        .content2{
+            padding-top:200px;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" class="page" id="pg1">
+        <div data-role="content" class="content">
+            <form action="">
+                <label for="username">
+                    用户名：
+                </label>
+                    <input type="text" id="username" placeholder="请输入用户名">
+                <label for="password1">
+                    密码：
+                </label>
+                    <input type="text" id="password1" placeholder="请输入密码">
+                    <label for="password2">
+                    再次输入密码：
+                </label>
+                    <input type="text" id="password2" placeholder="请再次输入密码">
+                <button class="sub">注册</button>                   
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+            <ul>
+                <li><a href="#pg1" class="ui-btn-active ui-state-persist">注册</a></li>
+                <li><a href="#pg2" data-transition="slide">登录</a></li>
+            </ul>   
+            </div>
+        </div> 
+    </div>
+
+    <div data-role="page" id="pg2" class="page">
+        <div data-role="content" class="content2">
+        <form action="">
+            <label for="d_username">
+                    用户名：
+            </label>
+            <input type="text" id="d_username" placeholder="请输入用户名">
+            <label for="d_password">
+                    密码：
+            </label>
+            <input type="text" id="d_password" placeholder="请输入密码">
+            <a href="index.html" data-role="button" class="sub" rel="external">登录</a>                  
+        </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#pg1" data-transition="slide" data-direction="reverse">注册</a></li>
+                    <li><a href="#pg2" class="ui-btn-active ui-state-persist">登录</a></li>
+                </ul>   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
