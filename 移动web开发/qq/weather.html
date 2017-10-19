@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery-2.2.2.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        $.ajax({
+            url:'http://api.jisuapi.com/weather/query?&appkey=6b8a2c92b1fe5208&cityid=1',
+            type:'get',
+            dataTpye:'json',
+            success:function(d){
+                console.log(d.result);
+            }
+        });
+    </script>
+</body>
+</html>
