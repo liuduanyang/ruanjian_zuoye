@@ -9,13 +9,13 @@
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <title>注册 | 登录</title>
     <style>
-        .page{
-            background-image:url('images/bk0.gif');
-            background-size:100% 100%;
-        }
         *{
             color:white;
             font-weight:100 !important;
+        }
+        .page{
+            background-image:url('images/bk0.gif');
+            background-size:100% 100%;
         }
         .content label{
             margin-top:20px;
@@ -38,16 +38,16 @@
                 <label for="username">
                     用户名：
                 </label>
-                    <input type="text" id="username" placeholder="请输入用户名">
+                    <input type="text" id="username" placeholder="请输入用户名" required>
                 <label for="password1">
                     密码：
                 </label>
-                    <input type="text" id="password1" placeholder="请输入密码">
+                    <input type="password" id="password1" placeholder="请输入密码" required>
                     <label for="password2">
                     再次输入密码：
                 </label>
-                    <input type="text" id="password2" placeholder="请再次输入密码">
-                <button class="sub">注册</button>                   
+                    <input type="password" id="password2" placeholder="请再次输入密码" required>
+                <button class="sub" id="myzc">注册</button>                   
             </form>
         </div>
 
@@ -67,12 +67,12 @@
             <label for="d_username">
                     用户名：
             </label>
-            <input type="text" id="d_username" placeholder="请输入用户名">
+            <input type="text" id="d_username" placeholder="请输入用户名" required>
             <label for="d_password">
                     密码：
             </label>
-            <input type="text" id="d_password" placeholder="请输入密码">
-            <a href="index.html" data-role="button" class="sub" rel="external">登录</a>                  
+            <input type="password" id="d_password" placeholder="请输入密码" required>
+            <button class="sub" id="mydl">登录</button>               
         </form>
         </div>
         <div data-role="footer" data-position="fixed">
@@ -84,5 +84,50 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // var zc=document.getElementById("myzc");
+        // var dl=document.getElementById("mydl");
+        // zc.onclick=function(){
+        //     var username=document.getElementById("username").value;
+        //     if(document.getElementById("password1").value===document.getElementById("password2").value){
+        //         var password=document.getElementById("password1").value;
+        //     }else{
+        //         alert("两次密码输入不一致");
+        //     }
+        // }
+
+        // dl.onclick=function(){
+        //     var d_username=document.getElementById("d_username");
+        //     var d_password=document.getElementById("d_password");
+        // }
+
+        $("#myzc").click(function(){
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+                type:'get',
+                dataType:'json',
+                data:{
+                    status:'register',
+                    userID:$("#username").val(),
+                    password:$('#password1').val(),
+                    success:function(info){
+                        switch(info){
+                            case 0:
+                                alert("用户名重名");
+                                break;
+                            case 1:
+                                alert("注册成功");
+                                window.location.href="#pg2";
+                                break;
+                            case 2:
+                                alert("数据库错误");
+                                break;
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
