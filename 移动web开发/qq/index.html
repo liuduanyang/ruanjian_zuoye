@@ -21,6 +21,29 @@
             background-size:100% 100%;
             background-repeat:no-repeat;
         }
+        .ui-icon-add{
+            background-image:url('images/add.png');
+            background-size:100% 100%;
+            background-repeat:no-repeat;
+        }
+        .ui-icon-f1{
+            background-image:url('images/f1.png');
+            background-size:16px 16px;
+            background-repeat:no-repeat;
+            background-position:50% 30%;
+        }
+        .ui-icon-f2{
+            background-image:url('images/f2.png');
+            background-size:16px 16px;
+            background-repeat:no-repeat;
+            background-position:50% 30%;
+        }
+        .ui-icon-f3{
+            background-image:url('images/f3.png');
+            background-size:16px 16px;
+            background-repeat:no-repeat;
+            background-position:50% 30%;
+        }
         .ui-li-count{
             background-color:red !important;
             border:0px solid #ccc;
@@ -35,11 +58,19 @@
             margin-top:10px;
             margin-left:10px;
         }
+        .app{
+            background-color:#3299cc !important;
+            border-width:0px !important;
+            overflow:hidden;
+        }
         .footer{
             padding:0;
             margin:0;
         }
 
+        a:after{
+            background-color:rgba(0,0,0,0) !important;
+        }
         .content_xx li a:after{
             display:none;
         }
@@ -50,7 +81,7 @@
         <div data-role="header" data-theme="c" data-position="fixed">
             <a href="#" data-role="button" data-iconpos="notext" data-icon="tx"></a>
             <h3 class="header_h3">消息</h3>
-            <a href="#" data-role="button" data-iconpos="notext" data-icon="plus"></a>
+            <a href="#" data-role="button" data-iconpos="notext" data-icon="add" class="app"></a>
         </div>
 
         <div data-role="content">
@@ -125,9 +156,9 @@
         <div data-role="footer" data-position="fixed" class="footer">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#" data-icon="home" class="ui-btn-active ui-state-persist">消息</a></li>
-                    <li><a href="#" data-icon="info">联系人</a></li>
-                    <li><a href="#" data-icon="star">动态</a></li>
+                    <li><a href="#" data-icon="f1" class="ui-btn-active ui-state-persist">消息</a></li>
+                    <li><a href="#" data-icon="f2">联系人</a></li>
+                    <li><a href="#" data-icon="f3">动态</a></li>
                 </ul>
             </div>
 
