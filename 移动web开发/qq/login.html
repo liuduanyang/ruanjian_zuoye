@@ -69,11 +69,12 @@
                         case 2:
                             alert("用户名密码不符");
                             break;
-                        default:
-                            window.open('index.html');
-                            break;
                         }
+                    if(info["1"]===$("#d_username").val()){
+                        window.location.href='index.html';
+                    }
                 }
+
             });
         });
     </script>
