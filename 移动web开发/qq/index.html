@@ -40,6 +40,9 @@
             margin:0;
         }
 
+        .content_xx li a:after{
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -130,5 +133,10 @@
 
         </div>
     </div>
+    <script>
+        $('.content_xx').on('taphold','li',function(){
+            $('.content_xx').prepend($(this));
+        });
+    </script>
 </body>
 </html>
