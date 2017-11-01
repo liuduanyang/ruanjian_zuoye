@@ -74,12 +74,78 @@
         .content_xx li a:after{
             display:none;
         }
+        /* 面板panel的设置 */
+        #myPanel{
+            padding:0 !important;
+            margin:0 !important;
+        }
+        .ui-panel-inner{
+            padding:0 !important;
+            margin:0 !important;
+        }
+        .p_back{
+            margin:0 !important;
+            width:100%;
+            height:200px;
+            background-image:url("images/panel_back.jpg");
+            background-size:100% 100%;
+        }
+        .p_name{
+            display:inline-block;
+            height:38px;
+            font-size:20px;
+            line-height:28px;
+        }
+        .p_other a{
+            display:block;
+            height:50px;
+            width:100%;
+            text-decoration: none;
+            font-size:20px;
+            line-height:50px;
+            color:black !important;
+            padding-left:20px;
+        }
+        .p_footer{
+           padding-top:130px;
+        } 
+        .p_footer a{
+            display:inline-block;
+            width:49%;
+            height:58px;
+            font-size:20px;
+            line-height:58px;
+            text-decoration:none;
+            color:black;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
-    <div data-role="page">
+    <div data-role="page" id="p1">
+
+        <div data-role="panel" id="myPanel" data-display="push">
+            <div class="p_back">
+                <a href="#" style="display:inline-block;margin:0;margin-left:20px;margin-top:150px;" data-role="button" data-iconpos="notext" data-icon="tx"></a>
+                <span class="p_name">None_</span>
+            </div>
+            <div class="p_other">
+                <a href="#"><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;激活会员</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;QQ钱包</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;个性装扮</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的收藏</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的相册</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的文件</a>
+                <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;免流量特权</a>
+            </div>
+            <div class="p_footer">
+                <a href="#">设置</a>
+                <a href="#">夜间</a>
+            </div>
+        </div>
+
         <div data-role="header" data-theme="c" data-position="fixed">
-            <a href="#" data-role="button" data-iconpos="notext" data-icon="tx"></a>
+            <a href="#myPanel" data-role="button" data-iconpos="notext" data-icon="tx"></a>
             <h3 class="header_h3">消息</h3>
             <a href="#" data-role="button" data-iconpos="notext" data-icon="add" class="app"></a>
         </div>
@@ -156,14 +222,95 @@
         <div data-role="footer" data-position="fixed" class="footer">
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#" data-icon="f1" class="ui-btn-active ui-state-persist">消息</a></li>
-                    <li><a href="#" data-icon="f2">联系人</a></li>
+                    <li><a href="#p1" data-icon="f1" class="ui-btn-active ui-state-persist">消息</a></li>
+                    <li><a href="#p10" data-icon="f2">联系人</a></li>
                     <li><a href="#" data-icon="f3">动态</a></li>
                 </ul>
             </div>
 
         </div>
     </div>
+
+
+
+    <div data-role="page" id="p10">
+            <div data-role="panel" id="myPanel1" data-display="push">
+                    <div class="p_back">
+                        <a href="#" style="display:inline-block;margin:0;margin-left:20px;margin-top:150px;" data-role="button" data-iconpos="notext" data-icon="tx"></a>
+                        <span class="p_name">None_</span>
+                    </div>
+                    <div class="p_other">
+                        <a href="#"><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;激活会员</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;QQ钱包</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;个性装扮</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的收藏</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的相册</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;我的文件</a>
+                        <a href=""><img src="images/panel.png" width="18" height="18"/>&nbsp;&nbsp;免流量特权</a>
+                    </div>
+                    <div class="p_footer">
+                        <a href="#">设置</a>
+                        <a href="#">夜间</a>
+                    </div>
+                </div>
+        
+                <div data-role="header" data-theme="c" data-position="fixed">
+                    <a href="#myPanel1" data-role="button" data-iconpos="notext" data-icon="tx"></a>
+                    <h3 class="header_h3">消息</h3>
+                    <a href="#" data-role="button" data-iconpos="notext" data-icon="add" class="app"></a>
+                </div>
+    <div data-role="content">
+        <div data-role="collapsible-set">
+            <div data-role="collapsible">
+                <h3>朋友</h3>
+                <p>小黑</p>
+                <p>小黑</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>同学</h3>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+            </div>
+            <div data-role="collapsible">
+                <h3>亲人</h3>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+                <p>小黑</p>
+            </div>
+            </div>
+        </div>
+            <div data-role="footer" data-position="fixed" class="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#p1" data-icon="f1">消息</a></li>
+                        <li><a href="#p10" data-icon="f2" class="ui-btn-active ui-state-persist">联系人</a></li>
+                        <li><a href="#" data-icon="f3">动态</a></li>
+                    </ul>
+                </div>   
+            </div>
+    </div>
+
     <script>
         $('.content_xx').on('taphold','li',function(){
             $('.content_xx').prepend($(this));
