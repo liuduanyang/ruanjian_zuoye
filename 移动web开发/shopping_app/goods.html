@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goods</title>
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <script src="./js/jquery-2.2.2.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/rem.js"></script>
+    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
+    <style>
+        body{
+            font-size:0.16rem !important;
+        }
+        a::after{
+            content:none !important;
+        }
+        .ui-icon-kf{
+            background-image:url('./images/kf.png');
+        }
+        .ui-icon-jd{
+            background-image:url('./images/jd.png');
+        }
+        .ui-icon-sc{
+            background-image:url('./images/sc.png');
+        }
+        .navbar_a{
+            background-size:0.3rem 0.28rem;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .navbar_b{
+            color:white !important;
+            background-color:#ff9500 !important;
+            height:100%;
+            font-size:0.16rem !important;
+            font-weight:400 !important;
+            padding:0;
+            line-height:0.56rem;
+        }
+        .navbar_c{
+            color:white !important;
+            background-color:#ff0036 !important;
+            height:100%;
+            font-size:0.16rem !important;
+            font-weight:200 !important;
+            padding:0;
+            line-height:0.56rem;
+        }
+        .header a::after{
+            content:none !important;
+        }
+        .content{
+            padding:0;
+            margin-bottom:0.56rem;
+        }
+        .footer{
+            height:0.56rem !important;
+        }
+
+        .flex-container{
+            display:flex !important;
+        }
+        .flex-item1{
+            flex-basis:0 !important;
+            flex-grow:1 !important;
+        }
+        .flex-item2{
+            flex-basis:0 !important;
+            flex-grow:2 !important;
+        }
+        .imgs{
+            width:4.14rem;
+            height:4.14rem;
+        }
+        .swiper-container{
+            width:4.14rem;
+            height:100%;
+        }
+        #money{
+            color:red;
+            font-size:0.25rem;
+        }
+        #ms{
+            font-weight:bold;
+        }
+        .ui-icon-backd{
+            background-image:url('./images/back.png');
+            background-size:100% 100%;
+        }
+        #myPanel{
+            padding-top:0.5rem;
+        }
+        #myPanel button{
+            margin-top:0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="page">
+
+        <!-- 面板 显示购买数量 -->
+        <div data-role="panel" id="myPanel">
+            <label for="buyNumber">购买数量：</label>
+            <input type="number" id="buyNumber">
+            <button id="sureBuy">添加购物车</button>
+            <a href="#" rel="external" id="seeCar" data-role="button">查看购物车</a>
+        </div>
+
+        <div data-role="header" class="header" data-position="fixed">
+            <a href="index.html" rel="external" data-icon="backd" data-iconpos="notext"></a>
+        </div>
+        <div data-role="content" class="content">
+            <!-- 轮播 -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        
+        <h3 id="title"></h3>
+        <p id="money"></p>
+        <p id="ms">商品描述：</p>
+        <p id="detail"></p>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul class="flex-container">
+                    <li class="flex-item1"><a href="#" class="navbar_a" data-icon="kf" data-iconpos="top">客服</a></li>
+                    <li class="flex-item1"><a href="#" class="navbar_a" data-icon="jd" data-iconpos="top">进店</a></li>
+                    <li class="flex-item1"><a href="#" class="navbar_a" data-icon="sc" data-iconpos="top">收藏</a></li>
+                    <li class="flex-item2"><a href="#myPanel" class="navbar_b">加入购物车</a></li>
+                    <li class="flex-item2"><a href="#" class="navbar_c">立即购买</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播
+        $(document).on('pageshow','#page',function(){
+            var mySwiper = new Swiper('.swiper-container',{
+            direction: 'horizontal',
+            // loop:true,
+            pagination:'.swiper-pagination',
+            autoplay: 1000,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            // observer:true,
+            // observeParents:true,
+            })});
+        $(document).on('pageinit','#page',function(){
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+                type:'POST',
+                dataType:'JSONP',
+                data:{
+                    goodsID:location.hash.slice(1)
+                },
+                success:function(data){
+                    console.log(data);
+                    var arr=JSON.parse(data[0]['imgsUrl']);
+                    var length=JSON.parse(data[0]['imgsUrl']).length;
+                    var wrapper=document.getElementsByClassName("swiper-wrapper")[0];
+                    for(var i=0;i<length;i++){
+                        var div=document.createElement("div");
+                        div.class="swiper-slide";
+                        var img=document.createElement("img");
+                        img.src=""+arr[i];
+                        img.setAttribute("class","imgs");
+                        div.appendChild(img);
+                        wrapper.appendChild(div);
+                    }
+
+                    var title=document.getElementById("title");
+                    title.innerHTML=data[0]['goodsName'];
+
+                    var money=document.getElementById("money");
+                    money.innerHTML='￥'+data[0]['buynumber'];
+
+                    var detail=document.getElementById("detail");
+                    detail.innerHTML=data[0]['detail'];
+                }
+            })
+        });
+
+        $('#sureBuy').click(function(){
+            if(sessionStorage.getItem('status')=='true'){
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/updatecar.php',
+                type:'POST',
+                dataType:'JSON',
+                data:{
+                    userID:sessionStorage.getItem('userID'),
+                    goodsID:location.hash.slice(1),
+                    number:$('#buyNumber').val()
+                },
+                success:function(data){
+                    if(data==1){
+                        alert("添加购物车成功");
+                    }else{
+                        alert("添加购物车失败");
+                    }
+                }
+            })
+            }else{
+                alert("请先登录或注册");
+            }
+        });
+
+        $('#seeCar').click(function(){
+            if(sessionStorage.getItem('status')=='true'){
+                location.href="car.html";
+            }else{
+                alert("请先登录或注册");
+            }
+        });
+    </script>
+</body>
+</html>

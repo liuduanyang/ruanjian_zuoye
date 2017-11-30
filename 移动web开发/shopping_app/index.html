@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+    <script src="./js/jquery-2.2.2.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/rem.js"></script>
+    <style>
+        body{
+            font-size:0.16rem !important;
+        }
+        a::after{
+            content:none !important;
+        }
+        .ui-icon-f_1_1{
+            background-image:url('./images/f_1_1.png');
+        }
+        .ui-icon-f_2_1{
+            background-image:url('./images/f_2_1.png');
+        }
+        .ui-icon-f_3_1{
+            background-image:url('./images/f_3_1.png');
+        }
+        .ui-icon-f_4_1{
+            background-image:url('./images/f_4_1.png');
+            background-size:40% 50%;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .navbar_a{
+            background-size:0.414rem 0.28rem;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .footer{
+            height:0.56rem !important;
+        }
+
+
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        img{
+            width:20%;
+            height:2rem;
+        }
+        .ui-icon-news{
+            background-image:url("./images/index_news.png");
+            background-size:100% 100%;  
+        }
+        .header_icon_news::after{
+            content:none;
+        }
+        .header_icon_news{
+            border:0 solid #ccc;
+            box-shadow:0 0;
+        }
+        .ui-block-aa{
+            width:89% !important;
+            margin-left:1%;
+        }
+        .ui-block-bb{
+            width:10% !important;
+        }
+        
+        .content{
+            padding:0;
+            margin-bottom:0.56rem;
+        }
+        #content_scroll{
+            width:100%;
+            overflow:hidden;
+        }
+        .content_ban{
+            width:500%;
+            height:2rem;
+            font-size:0;
+        }
+        .ui-btn-active{
+            background-color:tomato !important;
+        }
+
+        /* 分类 */
+        .ui-grid-d{
+            text-align: center;
+        }
+        .flex-container{
+            display:flex;
+            width:100%;
+            height:0.8rem;
+        }
+        .flex-container img{
+            width:100%;
+            height:0.5rem;
+        }
+        .flex-item{
+            margin:0;
+            text-align:center;
+            margin:0.05rem;
+        }
+
+        #hot{
+            color:white;
+            background-color:tomato;
+            padding-left:0.2rem;
+        }
+        .myhot{
+            overflow: hidden;
+            width:95%;
+            margin:0 auto;
+        }
+        .myhot-item{
+            width:25%;
+            height:0.8rem;
+            padding:0.05rem;
+            float:left;
+            box-sizing:border-box;
+        }
+        .myhot-item>img{
+            width:100%;
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="p1">
+        <div data-role="header" class="header" data-position="fixed">
+            <div class="ui-grid-a">
+                <div class="ui-block-a ui-block-aa">
+                    <input type="search" placeholder="点我搜索" id="header_search">
+                </div>    
+                <div class="ui-block-b ui-block-bb">
+                    <a href="#" class="header_icon_news" data-role="button" data-icon="news" data-iconpos="notext"></a>
+                </div>
+            </div>
+        </div>
+        <div data-role="content" class="content">
+            <!-- 轮播 -->
+            <div id="content_scroll">
+            <div class="content_ban">
+                <img src="./images/b1.png" alt="">
+                <img src="./images/b2.png" alt="">
+                <img src="./images/b3.png" alt="">
+                <img src="./images/b4.png" alt="">
+                <img src="./images/b1.png" alt="">
+            </div>
+            </div>
+
+            <!-- 分类 -->
+            <div class="ui-grid-d">
+                <div class="ui-block-a flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_cs.jpg">
+                        衬衫
+                    </div>
+                </div>
+                <div class="ui-block-b flex-container">
+                        <div class="flex-item">
+                            <img src="./images/lie_lf.jpg">
+                            礼服
+                        </div>
+                </div>
+                <div class="ui-block-c flex-container">
+                        <div class="flex-item">
+                            <img src="./images/lie_mf.jpg">
+                            棉服
+                        </div>
+                </div>
+                <div class="ui-block-d flex-container">
+                        <div class="flex-item">
+                            <img src="./images/lie_dwt.jpg">
+                            短外套
+                        </div>
+                </div>
+                <div class="ui-block-e flex-container">
+                        <div class="flex-item">
+                            <img src="./images/lie_wy.jpg">
+                            卫衣
+                        </div>
+                </div>
+            </div>
+            <div class="ui-grid-d">
+                <div class="ui-block-a flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_t.jpg">
+                        T恤
+                    </div>
+                </div>
+                <div class="ui-block-b flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_fy.jpg">
+                        风衣
+                    </div>
+                </div>
+                <div class="ui-block-c flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_dd.jpg">
+                        打底裤
+                    </div>
+                </div>
+                <div class="ui-block-d flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_pc.jpg">
+                        皮草
+                    </div>
+                </div>
+                <div class="ui-block-e flex-container">
+                    <div class="flex-item">
+                        <img src="./images/lie_yrs.jpg">
+                        羊绒衫
+                    </div>
+                </div>
+            </div>
+
+            <p id="hot">hot &nbsp;&nbsp; 好物推荐</p>
+            <div class="myhot">
+            </div>
+
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="./car.html" rel="external" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="#p3" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 我 -->
+
+    <div data-role="page" id="p3">
+        <div data-role="content" id="p3_content">
+            <label for="username">用户名：</label><input id="username" type="text">
+            <label for="password">密&nbsp;码&nbsp;：</label><input id="password" type="password">
+
+            <a href="#" data-role="button" id="login">登录</a>
+            <a href="#p4" data-role="button" data-transition="slide">注册</a>         
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#p1" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="./car.html" rel="external" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="#p3" data-transition="slide" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 注册 -->
+    <div data-role="page" id="p4">
+        <div data-role="content" id="p4_content">
+            <label for="username">用&nbsp;户&nbsp;名：</label><input id="regname" type="text">
+            <label for="password">密&nbsp;&nbsp;码&nbsp;&nbsp;：</label><input id="regpass1" type="password">
+            <label for="password">确认密码：</label><input id="regpass2" type="password">
+            <a href="#" id="reg" data-role="button">注册</a>
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#p1" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="#p3" data-transition="slide" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    // 轮播
+        var i=0;
+        var n=15;
+        var screen_width=screen.width;
+        var screen_width4=screen.width*4;
+        var content_ban=document.getElementsByClassName("content_ban")[0];
+        var content_scroll=document.getElementById("content_scroll");
+        var myhot_container=document.getElementsByClassName("myhot")[0];
+        function xh(){
+            i+=1;
+            if(i>screen_width){
+                clearInterval(int);
+                i=0;
+                setTimeout('int=setInterval(xh,4);',1000);
+            }else{
+                content_scroll.scrollLeft+=1;
+                if(content_scroll.scrollLeft===screen_width4){
+                    content_scroll.scrollLeft=0;
+                }
+            }
+        }
+            var int=setInterval(xh,4);
+        
+        window.onload=function(){
+            for(var i=0;i<n;i++){
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+                type:'GET',
+                dataType:'JSONP',
+                data:{
+                    classID:Math.ceil(Math.random()*10)+'',
+                },
+                success:function(data){
+                    var div=document.createElement("div");
+                    div.setAttribute("class","myhot-item");
+                    var img=document.createElement("img");
+                    var datas=data[Math.floor(Math.random()*10)+''];
+                    img.src=datas['goodsListImg'];
+                    img.setAttribute('goodsID',datas['goodsID'])
+                    img.onload=function(){
+                        div.appendChild(img);
+                        myhot_container.appendChild(div);
+
+                        img.onclick=function(){
+                            location.href='./goods.html#'+img.getAttribute("goodsID");
+                        }
+                    }
+                }
+            });
+            }
+        }
+
+        // 登录
+        var login=document.getElementById("login");
+        login.onclick=function(){
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+                type:'POST',
+                dataType:'JSON',
+                data:{
+                    status:'login',
+                    userID:$('#username').val(),
+                    password:$('#password').val()
+                },
+                success:function(data){
+                    if(data==0){
+                        var p3_content=document.getElementById("p3_content");
+                        var p=document.createElement("p");
+                        p.style.color="red";
+                        p.innerHTML="用户名不存在！";
+                        p3_content.appendChild(p);
+                    }
+                    else if(data==2){
+                        var p3_content=document.getElementById("p3_content");
+                        var p=document.createElement("p");
+                        p.style.color="red";
+                        p.innerHTML="用户名密码不符！";  
+                        p3_content.appendChild(p);                      
+                    }
+                    else if(data instanceof Object){
+                        location.href="user.html";
+                        sessionStorage.setItem('status','true');
+                        sessionStorage.setItem('userID',$('#username').val());
+                        sessionStorage.setItem('password',$('#password').val());
+                    }
+                }
+            })
+        }
+
+        // 注册
+        $('#reg').click(function(){
+            if($('#regpass1').val()!=$('#regpass2').val()){
+                var p4_content=document.getElementById("p4_content");
+                p4_content.removeChild(p4_content.lastChild);
+                var p=document.createElement("p");
+                p.style.color="red";
+                p.innerHTML="两次密码输入不一致！";
+                p4_content.appendChild(p);
+                return;
+            }
+            $.ajax({
+                url:'http://datainfo.duapp.com/shopdata/userinfo.php',
+                type:'POST',
+                dataType:'JSON',
+                data:{
+                    status:'register',
+                    userID:$('#regname').val(),
+                    password:$('#regpass1').val()
+                },
+                success:function(data){
+                    var p4_content=document.getElementById("p4_content");
+                    p4_content.removeChild(p4_content.lastChild);
+                    if(data==0){
+                        var p4_content=document.getElementById("p4_content");
+                        var p=document.createElement("p");
+                        p.style.color="red";
+                        p.innerHTML="用户名重名！";
+                        p4_content.appendChild(p);
+                    }
+                    else if(data==2){
+                        var p4_content=document.getElementById("p4_content");
+                        var p=document.createElement("p");
+                        p.style.color="red";
+                        p.innerHTML="数据库错误！";
+                        p4_content.appendChild(p);
+                    }
+                    else if(data==1){
+                        location.href="user.html";
+                        sessionStorage.setItem('status','true');
+                        sessionStorage.setItem('userID',$('#regname').val());
+                        sessionStorage.setItem('password',$('#regpass1').val());
+                    }
+                }
+            })
+        });
+        
+        // 打开搜索
+        //解决jqm渲染input后无法添加事件的办法 即使用全局绑定事件
+        $(document).on("click","#header_search",function(){
+            location.href="./search.html";
+        });
+
+
+        //首页与详情页传递goodsID
+        //首页 loation.href+'#'+goodsID
+        //详情页 location.hash
+
+        //?   location.href.search
+    </script>
+</body>
+</html>

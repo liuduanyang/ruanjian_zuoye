@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+    <script src="./js/jquery-2.2.2.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/rem.js"></script>
+    <style>
+        body{
+            font-size:0.16rem !important;
+        }
+        a::after{
+            content:none !important;
+        }
+        .ui-icon-f_1_1{
+            background-image:url('./images/f_1_1.png');
+        }
+        .ui-icon-f_2_1{
+            background-image:url('./images/f_2_1.png');
+        }
+        .ui-icon-f_3_1{
+            background-image:url('./images/f_3_1.png');
+        }
+        .ui-icon-f_4_1{
+            background-image:url('./images/f_4_1.png');
+            background-size:40% 50%;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .navbar_a{
+            background-size:0.414rem 0.28rem;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .content{
+            padding-top:1rem;
+        }
+        .footer{
+            height:0.56rem !important;
+        }
+        #tx{
+            display:block;
+            margin:0 auto;
+            width:0.5rem;
+            height:0.5rem;
+            border-radius:0.25rem;
+        }
+        p{
+            font-size:0.4rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="content" class="content">
+            <img src="./images/tx.jpg" alt="" id="tx">
+            <p>刘端阳</p>
+            <p>欢迎回来</p>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="./index.html" rel="external" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="#" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
