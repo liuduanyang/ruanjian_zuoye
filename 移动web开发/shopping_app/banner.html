@@ -60,11 +60,21 @@
         <div class="swiper-pagination"></div>
     </div>
     <div>
-        <a href="./index.html" class="btn">开启美丽之旅！</a>
+        <a href="#" class="btn">开启美丽之旅！</a>
     </div>
 
     <script src="./js/swiper-3.4.2.min.js"></script>
     <script>
+    // 第一次使用
+    if(localStorage.getItem("first")=="true"){
+        location.href="./index.html";
+    }
+    var btn=document.getElementsByClassName("btn")[0];
+    btn.onclick=function(){
+        localStorage.setItem("first","true");
+        location.href="./index.html";
+    }
+
         var mySwiper=new Swiper('.swiper-container',{
             direction:"horizontal",
             pagination:'.swiper-pagination',

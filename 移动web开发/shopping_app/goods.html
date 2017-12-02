@@ -192,13 +192,13 @@
         });
 
         $('#sureBuy').click(function(){
-            if(sessionStorage.getItem('status')=='true'){
+            if(localStorage.getItem('status')=='true'){
             $.ajax({
                 url:'http://datainfo.duapp.com/shopdata/updatecar.php',
                 type:'POST',
                 dataType:'JSON',
                 data:{
-                    userID:sessionStorage.getItem('userID'),
+                    userID:localStorage.getItem('userID'),
                     goodsID:location.hash.slice(1),
                     number:$('#buyNumber').val()
                 },
@@ -216,7 +216,7 @@
         });
 
         $('#seeCar').click(function(){
-            if(sessionStorage.getItem('status')=='true'){
+            if(localStorage.getItem('status')=='true'){
                 location.href="car.html";
             }else{
                 alert("请先登录或注册");

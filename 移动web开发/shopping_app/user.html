@@ -52,14 +52,21 @@
             font-size:0.4rem;
             text-align: center;
         }
+        #exit{
+            margin-top:2rem;
+            color:white;
+            background-color:red;
+            font-weight:200;
+        }
     </style>
 </head>
 <body>
     <div data-role="page">
         <div data-role="content" class="content">
             <img src="./images/tx.jpg" alt="" id="tx">
-            <p>刘端阳</p>
+            <p id="username"></p>
             <p>欢迎回来</p>
+            <button id="exit">退出登录</button>
 
         </div>
 
@@ -68,11 +75,21 @@
                 <ul>
                     <li><a href="./index.html" rel="external" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
                     <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
-                    <li><a href="#" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="./car.html" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
                     <li><a href="#" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
                 </ul>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("username").innerHTML=localStorage.getItem("userID");
+        var exit=document.getElementById("exit");
+        exit.onclick=function(){
+            localStorage.removeItem("userID");
+            localStorage.removeItem("status");
+            localStorage.removeItem("password");
+            location.href="index.html";
+        }
+    </script>
 </body>
 </html>

@@ -71,9 +71,9 @@
             <div data-role="navbar">
                 <ul>
                     <li><a href="./index.html" rel="external" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
-                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="more.html" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
                     <li><a href="#" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
-                    <li><a href="#" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                    <li><a href="user.html" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
                 </ul>
             </div>
         </div>
@@ -82,13 +82,13 @@
     <script>
         var list_show=document.getElementById("list_show");
         window.onload=function(){
-            if(sessionStorage.getItem('status')=='true'){
+            if(localStorage.getItem('status')=='true'){
                 $.ajax({
                     url:'http://datainfo.duapp.com/shopdata/getCar.php',
                     type:'POST',
                     dataType:'JSONP',
                     data:{
-                        userID:sessionStorage.getItem('userID')
+                        userID:localStorage.getItem('userID')
                     },
                     success:function(data){
                         if(data){
@@ -116,12 +116,12 @@
                                         type:'POST',
                                         dataType:'JSON',
                                         data:{
-                                            userID:sessionStorage.getItem('userID'),
+                                            userID:localStorage.getItem('userID'),
                                             goodsID:this.getAttribute("goodsID"),
                                             number:0
                                         },
                                         success:function(data){
-                                            list_show.removeChild(this);
+                                            location.href="car.html";
                                         }
                                     });
                                 })

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>more</title>
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
+    <script src="./js/jquery-2.2.2.js"></script>
+    <script src="./js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/rem.js"></script>
+    <style>
+        body{
+            font-size:0.16rem !important;
+        }
+        a::after{
+            content:none !important;
+        }
+        .ui-icon-f_1_1{
+            background-image:url('./images/f_1_1.png');
+        }
+        .ui-icon-f_2_1{
+            background-image:url('./images/f_2_1.png');
+        }
+        .ui-icon-f_3_1{
+            background-image:url('./images/f_3_1.png');
+        }
+        .ui-icon-f_4_1{
+            background-image:url('./images/f_4_1.png');
+            background-size:40% 50%;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+        .navbar_a{
+            background-size:0.414rem 0.28rem;
+            background-position:50% 15%;
+            background-repeat:no-repeat;
+        }
+
+        *{
+			padding: 0;
+			margin: 0;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.wrapper{
+			height: 52px;
+			position: relative;
+            overflow:hidden;
+		}
+		.wrapper .scroller{
+			position: absolute;
+		}
+		.wrapper li{
+			height: 50px;
+			float: left;
+			line-height: 50px;
+			padding: 0 20px;
+		}
+        .cur{
+			border-bottom:3px solid red;
+		}
+        img{
+            width:24%;
+            height:0.6rem;
+            margin:0 0.5% 0.5% 0.5%;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="content">
+            <div class="wrapper" id="wrap">
+                <div class="scroller">
+                    <ul>
+                        <li class="cur" classid="1">衬衫</li>
+                        <li classid="2">礼服</li>
+                        <li classid="3">棉服</li>
+                        <li classid="4">短外套</li>
+                        <li classid="5">卫衣</li>
+                        <li classid="6">T恤</li>
+                        <li classid="7">风衣</li>
+                        <li classid="8">打底裤</li>
+                        <li classid="9">皮草</li>
+                        <li classid="10">羊绒衫</li>
+                     </ul>	
+                </div>
+            </div>
+
+            <div id="imgs">
+
+            </div>
+
+        </div>
+        <div data-role="footer" data-position="fixed" class="footer">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="./index.html" rel="external" class="navbar_a" data-icon="f_1_1" data-iconpos="top">首页</a></li>
+                    <li><a href="#" class="navbar_a" data-icon="f_2_1" data-iconpos="top">分类</a></li>
+                    <li><a href="./car.html" class="navbar_a" data-icon="f_3_1" data-iconpos="top">购物车</a></li>
+                    <li><a href="#" data-transition="slide" data-direction="reverse" class="navbar_a" data-icon="f_4_1" data-iconpos="top">我</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/iscroll.js"></script>
+	<script src="./js/navbarscroll.js"></script>
+    <script>
+    $(function(){
+		$('.wrapper').navbarscroll();
+	})
+
+    var imgs=document.getElementById("imgs");
+    var scroller=document.getElementsByClassName("scroller")[0];
+    var li_list=scroller.getElementsByTagName("li");
+    for(var i=0;i<li_list.length;i++){
+    li_list[i].onclick=function(){
+        $.ajax({
+            url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+            type:'POST',
+            dataType:'JSONP',
+            data:{
+                classID:this.getAttribute("classid")
+            },
+            success:function(data){
+                console.log(data);
+                imgs.innerHTML='';
+                for(var i=0;i<data.length;i++){
+                    var img=document.createElement('img');
+                    img.src=data[i]['goodsListImg'];
+                    imgs.appendChild(img); 
+                }           
+            }
+        })
+    }
+    }
+    window.onload=function(){
+        $.ajax({
+            url:'http://datainfo.duapp.com/shopdata/getGoods.php',
+            type:'POST',
+            dataType:'JSONP',
+            data:{
+                classID:(location.hash.slice(1)+'') || '1'
+            },
+            success:function(data){
+                imgs.innerHTML='';
+                for(var i=0;i<data.length;++i){
+                (function(){
+                    var img=document.createElement('img');
+                    img.src=data[i]['goodsListImg'];
+                    img.setAttribute("goodsID",data[i]['goodsID']);
+                    imgs.appendChild(img);
+                    img.onclick=function(){
+                        location.href="goods.html#"+this.getAttribute("goodsID");
+                    }
+                })();
+                }           
+            }
+        })
+        }
+
+    </script>
+</body>
+</html>
