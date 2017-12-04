@@ -35,9 +35,6 @@
             background-position:50% 15%;
             background-repeat:no-repeat;
         }
-        .content{
-            padding-top:0.3rem !important;
-        }
         .footer{
             height:0.56rem !important;
         }
@@ -47,13 +44,45 @@
             margin:0 !important;
             font-weight:200;
         }
-        img{
-            width:80px;
-            height:80px;
+        .content li{
+            width:100%;
+            height:1.2rem;
+            overflow:hidden;
+            border-bottom:1px solid #ccc;
         }
-        .content p{
-            float:right;
-            margin-left:10px !important;
+        .div1{
+            width:30%;
+            height:100%;
+            float:left;
+        }
+        .div2{
+            width:67%;
+            margin-left:3%;
+            height:100%;
+            float:left;
+            position:relative;
+        }
+        .content img{
+            width:100%;
+            height:100%;
+        }
+        .content a{
+            position: absolute;
+            right:10px;
+            bottom:10px;
+            color:red;
+            text-decoration:none;
+        }
+        #sum{
+            position: absolute;
+            bottom:0.56rem;
+            width:70%;
+            margin-left:15%;
+        }
+
+        #sum span{
+            display: inline-block;
+            width:1.2rem;
         }
     </style>
 </head>
@@ -66,6 +95,12 @@
             <ul id="list_show" data-role="listview">
                 
             </ul>
+
+            <div id="sum">
+                <span id="prices">总价：</span>
+                <button data-inline="true">确认购买</button>
+            </div>
+
         </div>
         <div data-role="footer" data-position="fixed" class="footer">
             <div data-role="navbar">
@@ -81,6 +116,8 @@
 
     <script>
         var list_show=document.getElementById("list_show");
+        var sum=document.getElementById("prices");
+        var pricesnum=0;
         window.onload=function(){
             if(localStorage.getItem('status')=='true'){
                 $.ajax({
@@ -95,23 +132,41 @@
                             console.log(data);
                             for(var i=0;i<data.length;i++){
                                 var li=document.createElement("li");
-                                var h1=document.createElement("h1");
-                                h1.innerHTML=data[i]['goodsName'];
+                                var div1=document.createElement("div");
+                                div1.setAttribute("class","div1");
+                                var div2=document.createElement("div");
+                                div2.setAttribute("class","div2");
                                 var img=document.createElement("img");
                                 img.src=data[i]['goodsListImg'];
+                                div1.appendChild(img);
+                                var h1=document.createElement("h1");
+                                h1.innerHTML=data[i]['goodsName'];
                                 var p1=document.createElement("p");
                                 p1.innerHTML='数量：'+data[i]['number'];
                                 var p2=document.createElement("p");
                                 p2.innerHTML='价格：'+data[i]['price'];
-                                li.setAttribute("goodsID",data[i]['goodsID']);
-                                li.appendChild(h1);
-                                li.appendChild(img);
-                                li.appendChild(p1);
-                                li.appendChild(p2);
+                                var del=document.createElement("a");
+                                del.setAttribute("href","#");
+                                del.setAttribute("goodsID",data[i]['goodsID']);
+                                del.innerHTML="删除";
+                                div2.appendChild(del);
+                                div2.appendChild(h1);
+                                div2.appendChild(p1);
+                                div2.appendChild(p2);
+                                li.appendChild(div1);
+                                li.appendChild(div2);
                                 list_show.appendChild(li);
+
+                                pricesnum+=Number(data[i]['price']);
                             }
-                            $('li').on('taphold',function(){
-                                $.ajax({
+                            sum.innerHTML="总价："+pricesnum+"元";
+
+                            var list_a=list_show.getElementsByTagName("a");
+                            console.log(list_a);
+
+                            for(var f=0;f<list_a.length;f++){
+                                list_a[f].addEventListener("click",function(){
+                                    $.ajax({
                                         url:'http://datainfo.duapp.com/shopdata/updatecar.php',
                                         type:'POST',
                                         dataType:'JSON',
@@ -125,6 +180,7 @@
                                         }
                                     });
                                 })
+                            }
                         }
                     }
                 })
@@ -132,6 +188,7 @@
                     alert("请先登录或注册");
                 }
         }
+
     </script>
 </body>
 </html>
