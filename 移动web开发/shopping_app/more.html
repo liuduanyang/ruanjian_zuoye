@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>more</title>
     <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
     <script src="./js/jquery-2.2.2.js"></script>
@@ -151,7 +151,8 @@
             },
             success:function(data){
                 myhot_container.innerHTML='';
-                for(var j=0;j<10;++j){    
+                for(var j=0;j<10;++j){  
+                    (function(){  
                     var div=document.createElement("div");
                     div.setAttribute("class","myhot-item");
                     var img=document.createElement("img");
@@ -161,15 +162,17 @@
                     h3.innerHTML=data[j]['goodsName'];
                     var price=document.createElement("p");
                     price.innerHTML=data[j]['price'];
-                    img.onload=(function(){
+                    img.onload=function(){
+                        var that=this;
                         div.appendChild(img);
                         div.appendChild(h3);
                         div.appendChild(price);
                         myhot_container.appendChild(div);
 
-                        img.onclick=function(){
-                            location.href='./goods.html#'+img.getAttribute("goodsID");
+                        that.onclick=function(){
+                            location.href='./goods.html#'+that.getAttribute("goodsID");
                         }
+                    }
                     })(j)
             }           
             }
@@ -187,6 +190,7 @@
             success:function(data){
                 console.log(data.length);
                 for(var j=0;j<10;++j){    
+                    (function(){ 
                     var div=document.createElement("div");
                     div.setAttribute("class","myhot-item");
                     var img=document.createElement("img");
@@ -196,7 +200,7 @@
                     h3.innerHTML=data[j]['goodsName'];
                     var price=document.createElement("p");
                     price.innerHTML=data[j]['price'];
-                    img.onload=(function(){
+                    img.onload=function(){
                         div.appendChild(img);
                         div.appendChild(h3);
                         div.appendChild(price);
@@ -205,6 +209,7 @@
                         img.onclick=function(){
                             location.href='./goods.html#'+img.getAttribute("goodsID");
                         }
+                    }
                     })(j)
             }
             }
