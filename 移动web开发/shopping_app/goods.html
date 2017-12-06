@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goods</title>
     <link rel="stylesheet" href="./css/jquery.mobile-1.4.5.min.css">
-    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <!-- <link rel="stylesheet" href="./css/swiper-3.4.2.min.css"> -->
     <script src="./js/jquery-2.2.2.js"></script>
     <script src="./js/jquery.mobile-1.4.5.min.js"></script>
     <script src="./js/rem.js"></script>
-    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
+    <!-- <script src="./js/swiper-3.4.2.jquery.min.js"></script> -->
+    <script src="./js/jquery.slides.min.js"></script>
+
+
+
     <style>
         body{
             font-size:0.16rem !important;
@@ -49,12 +53,21 @@
             padding:0;
             line-height:0.56rem;
         }
+        #page{
+            padding:0 !important;
+        }
+        .header{
+            height:0.36rem;
+            background:none !important;
+            border-width:0;
+        }
         .header a::after{
             content:none !important;
         }
         .content{
             padding:0;
             margin-bottom:0.56rem;
+            height:100%;
         }
         .footer{
             height:0.56rem !important;
@@ -71,9 +84,23 @@
             flex-basis:0 !important;
             flex-grow:2 !important;
         }
+        #slides .slidesjs-container{
+            width:4.14rem !important;
+            height:4.14rem !important;
+            overflow:hidden !important;
+        }
         .imgs{
-            width:4.14rem;
-            height:4.14rem;
+            width:4.14rem !important;
+            height:4.14rem !important;
+        }
+        .slidesjs-previous{
+            display:none;
+        }
+        .slidesjs-next{
+            display:none;
+        }
+        .slidesjs-pagination{
+            display:none;
         }
         .swiper-container{
             width:4.14rem;
@@ -117,15 +144,11 @@
         </div>
         <div data-role="content" class="content">
             <!-- 轮播 -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        
+            
+        <div id="slides">
+
+        </div>
+
         <h3 id="title"></h3>
         <p id="money"></p>
         <p id="ms">商品描述：</p>
@@ -148,18 +171,9 @@
 
     <script>
         var panel=document.getElementById("myPanel");
+        var slides=document.getElementById("slides");
         // 轮播
-        $(document).on('pageshow','#page',function(){
-            var mySwiper = new Swiper('.swiper-container',{
-            direction: 'horizontal',
-            // loop:true,
-            pagination:'.swiper-pagination',
-            autoplay: 1000,
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-            // observer:true,
-            // observeParents:true,
-            })});
+
         $(document).on('pageinit','#page',function(){
             $.ajax({
                 url:'http://datainfo.duapp.com/shopdata/getGoods.php',
@@ -172,16 +186,17 @@
                     console.log(data);
                     var arr=JSON.parse(data[0]['imgsUrl']);
                     var length=JSON.parse(data[0]['imgsUrl']).length;
-                    var wrapper=document.getElementsByClassName("swiper-wrapper")[0];
                     for(var i=0;i<length;i++){
-                        var div=document.createElement("div");
-                        div.class="swiper-slide";
                         var img=document.createElement("img");
                         img.src=""+arr[i];
                         img.setAttribute("class","imgs");
-                        div.appendChild(img);
-                        wrapper.appendChild(div);
+                        slides.appendChild(img);
                     }
+
+                    $(function(){
+                        $("#slides").slidesjs({});
+                    });
+
 
                     var title=document.getElementById("title");
                     title.innerHTML=data[0]['goodsName'];

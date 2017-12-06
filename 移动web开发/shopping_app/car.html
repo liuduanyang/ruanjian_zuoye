@@ -47,8 +47,20 @@
         .content li{
             width:100%;
             height:1.2rem;
-            overflow:hidden;
             border-bottom:1px solid #ccc;
+        }
+        .mycheckbox{
+            width:5%;
+            height:1.2rem;
+            float: left;
+            margin:0;
+        }
+        .mylabel{
+            width:94%;
+            height:1.2rem;
+            overflow:hidden;
+            float:left;
+            margin-left:1% !important;
         }
         .div1{
             width:30%;
@@ -72,6 +84,10 @@
             bottom:10px;
             color:red;
             text-decoration:none;
+        }
+        .setcount{
+            width:0.5rem;
+            margin-left:0.1rem;
         }
         #sum{
             position: absolute;
@@ -97,7 +113,7 @@
             </ul>
 
             <div id="sum">
-                <span id="prices">总价：</span>
+                <span id="prices">总价：0元</span>
                 <button data-inline="true">确认购买</button>
             </div>
 
@@ -142,7 +158,7 @@
                                 var h1=document.createElement("h1");
                                 h1.innerHTML=data[i]['goodsName'];
                                 var p1=document.createElement("p");
-                                p1.innerHTML='数量：'+data[i]['number'];
+                                p1.innerHTML='数量：'+'<input class="setcount" goodsID='+data[i]['goodsID']+' type="number" value='+data[i]["number"]+'>';
                                 var p2=document.createElement("p");
                                 p2.innerHTML='价格：'+data[i]['price'];
                                 var del=document.createElement("a");
@@ -153,13 +169,65 @@
                                 div2.appendChild(h1);
                                 div2.appendChild(p1);
                                 div2.appendChild(p2);
-                                li.appendChild(div1);
-                                li.appendChild(div2);
+                                var container=document.createElement("div");
+                                container.setAttribute("class","mylabel");
+                                container.appendChild(div1);
+                                container.appendChild(div2);
+                                var checkbox=document.createElement("input");
+                                checkbox.setAttribute("type","checkbox");
+                                checkbox.setAttribute("id",'my'+data[i]['goodsID']);
+                                checkbox.setAttribute("class","mycheckbox");
+                                checkbox.setAttribute("price",data[i]['price']);
+                                checkbox.setAttribute("count",data[i]['number']);
+                                checkbox.setAttribute("name","mycars");
+                                checkbox.setAttribute("status","false");
+                                li.appendChild(checkbox);
+                                li.appendChild(container);
                                 list_show.appendChild(li);
 
-                                pricesnum+=Number(data[i]['price']);
+                                checkbox.onchange=function(){
+                                    if(this.getAttribute("status")=="false"){
+                                        pricesnum+=Number(this.getAttribute("price"))*Number(this.getAttribute("count"));
+                                        sum.innerHTML="总价："+pricesnum+"元";
+                                        this.setAttribute("status","true");
+                                    }else{
+                                        pricesnum-=Number(this.getAttribute("price"))*Number(this.getAttribute("count"));
+                                        sum.innerHTML="总价："+pricesnum+"元";
+                                        this.setAttribute("status","false");
+                                    }
+                                }
                             }
-                            sum.innerHTML="总价："+pricesnum+"元";
+                            
+                            var setcounts=document.getElementsByClassName("setcount");
+                                for(var i=0;i<setcounts.length;i++){
+                                    (function(that){
+                                    setcounts[i].onchange=function(){
+                                        $.ajax({
+                                            url:'http://datainfo.duapp.com/shopdata/updatecar.php',
+                                            type:'POST',
+                                            dataType:'JSON',
+                                            data:{
+                                                userID:localStorage.getItem('userID'),
+                                                goodsID:that.getAttribute("goodsID"),
+                                                number:that.value
+                                            },
+                                            success:function(data){
+                                                var goods='my'+that.getAttribute("goodsID");
+                                                console.log(goods);
+                                                var me=document.getElementById(goods);
+                                                var olddata=me.getAttribute("count");
+                                                console.log(olddata);
+                                                me.setAttribute("count",that.value+'');
+                                                if(me.getAttribute("status")=="true"){
+                                                    pricesnum+=(me.getAttribute("count")-olddata)*me.getAttribute("price");
+                                                    console.log(pricesnum);
+                                                    sum.innerHTML="总价："+pricesnum+"元";
+                                                } 
+                                            }
+                                        })
+                                    }
+                                    }(setcounts[i]))
+                                }
 
                             var list_a=list_show.getElementsByTagName("a");
                             console.log(list_a);
