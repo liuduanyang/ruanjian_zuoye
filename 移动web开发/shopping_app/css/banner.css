@@ -1,0 +1,40 @@
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    width:100%;
+    height:100%;
+}
+img{
+    width:100%;
+    height:100%;
+}
+.btn{
+    display:inline-block;
+    box-sizing:border-box;
+    background-color:none;
+    color:#fff;
+    height:50px;
+    line-height:46px;
+    font-size:25px;
+    border-radius:10px;
+    text-align:center;
+    text-decoration:none;
+    border:2px solid #bbb;
+    z-index:999;
+    display:none;
+
+    width:70%;
+    margin-left:15%;
+    margin-right:15%;
+    position: absolute;
+    bottom:30px; 
+}
+.btn:visited{
+    color:write;
+}
+.swiper-container{
+    width:100%;
+    height:100%;
+}

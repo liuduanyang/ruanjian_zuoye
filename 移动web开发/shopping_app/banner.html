@@ -5,48 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
-    <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        html,body{
-            width:100%;
-            height:100%;
-        }
-        img{
-            width:100%;
-            height:100%;
-        }
-        .btn{
-            display:inline-block;
-            box-sizing:border-box;
-            background-color:none;
-            color:#fff;
-            height:50px;
-            line-height:46px;
-            font-size:25px;
-            border-radius:10px;
-            text-align:center;
-            text-decoration:none;
-            border:2px solid #bbb;
-            z-index:999;
-            display:none;
-
-            width:70%;
-            margin-left:15%;
-            margin-right:15%;
-            position: absolute;
-            bottom:30px; 
-        }
-        .btn:visited{
-            color:write;
-        }
-        .swiper-container{
-            width:100%;
-            height:100%;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/banner.css">
 </head>
 <body>
     <div class="swiper-container">
@@ -64,27 +23,6 @@
     </div>
 
     <script src="./js/swiper-3.4.2.min.js"></script>
-    <script>
-    // 第一次使用
-    if(localStorage.getItem("first")=="true"){
-        location.href="./index.html";
-    }
-    var btn=document.getElementsByClassName("btn")[0];
-    btn.onclick=function(){
-        localStorage.setItem("first","true");
-        location.href="./index.html";
-    }
-
-        var mySwiper=new Swiper('.swiper-container',{
-            direction:"horizontal",
-            pagination:'.swiper-pagination',
-            onTouchEnd:function(){
-                if(mySwiper.activeIndex===3){
-                    var btns=document.getElementsByClassName("btn");
-                    btns[0].style.display="block";
-                }
-            }
-        });
-    </script>
+    <script src="./js/banner.js"></script>
 </body>
 </html>

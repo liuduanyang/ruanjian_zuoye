@@ -1,0 +1,91 @@
+body{
+    font-size:0.16rem !important;
+}
+a::after{
+    content:none !important;
+}
+.ui-icon-f_1_1{
+    background-image:url('../images/f_1_1.png');
+}
+.ui-icon-f_2_1{
+    background-image:url('../images/f_2_1.png');
+}
+.ui-icon-f_3_1{
+    background-image:url('../images/f_3_1.png');
+}
+.ui-icon-f_4_1{
+    background-image:url('../images/f_4_1.png');
+    background-size:40% 50%;
+    background-position:50% 15%;
+    background-repeat:no-repeat;
+}
+.navbar_a{
+    background-size:0.414rem 0.28rem;
+    background-position:50% 15%;
+    background-repeat:no-repeat;
+}
+.footer{
+    height:0.56rem !important;
+}
+.header_h1{
+    background-color:orange;
+    color:white;
+    margin:0 !important;
+    font-weight:200;
+}
+.content li{
+    width:100%;
+    height:1.2rem;
+    border-bottom:1px solid #ccc;
+}
+.mycheckbox{
+    width:5%;
+    height:1.2rem;
+    float: left;
+    margin:0;
+}
+.mylabel{
+    width:94%;
+    height:1.2rem;
+    overflow:hidden;
+    float:left;
+    margin-left:1% !important;
+}
+.div1{
+    width:30%;
+    height:100%;
+    float:left;
+}
+.div2{
+    width:67%;
+    margin-left:3%;
+    height:100%;
+    float:left;
+    position:relative;
+}
+.content img{
+    width:100%;
+    height:100%;
+}
+.content a{
+    position: absolute;
+    right:10px;
+    bottom:10px;
+    color:red;
+    text-decoration:none;
+}
+.setcount{
+    width:0.5rem;
+    margin-left:0.1rem;
+}
+#sum{
+    position: absolute;
+    bottom:0.56rem;
+    width:70%;
+    margin-left:15%;
+}
+
+#sum span{
+    display: inline-block;
+    width:1.2rem;
+}
