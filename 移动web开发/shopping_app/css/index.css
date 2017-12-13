@@ -4,6 +4,18 @@ body{
 a::after{
     content:none !important;
 }
+.myhot h3{
+    font-size:0.14rem !important;
+    margin-bottom:0 !important;
+}
+.myhot p{
+    font-size:0.14rem !important;
+    position: absolute;
+    bottom:0;
+}
+.myhot-item{
+    position: relative;
+}
 .ui-icon-f_1_1{
     background-image:url('../images/f_1_1.png');
 }

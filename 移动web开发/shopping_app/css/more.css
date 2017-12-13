@@ -53,8 +53,20 @@ ul,li{
 
 .myhot_container{
     width:100%;
+    overflow:hidden;
 }
-
+.myhot_container h3{
+    font-size:0.14rem !important;
+    margin-bottom:0 !important;
+}
+.myhot_container p{
+    font-size:0.14rem !important;
+    position: absolute;
+    bottom:0;
+}
+.myhot-item{
+    position: relative;
+}
 .myhot-item{
     width:50%;
     height:2.2rem;
