@@ -12,7 +12,6 @@ window.onload=function(){
             },
             success:function(data){
                 if(data){
-                    console.log(data);
                     for(var i=0;i<data.length;i++){
                         var li=document.createElement("li");
                         var div1=document.createElement("div");
@@ -97,7 +96,6 @@ window.onload=function(){
                         }
 
                     var list_a=list_show.getElementsByTagName("a");
-                    console.log(list_a);
 
                     for(var f=0;f<list_a.length;f++){
                         list_a[f].addEventListener("click",function(){
@@ -120,6 +118,6 @@ window.onload=function(){
             }
         })
         }else{
-            alert("请先登录或注册");
+            location.href="index.html#login";
         }
 }

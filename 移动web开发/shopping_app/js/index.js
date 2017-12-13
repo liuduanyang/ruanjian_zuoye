@@ -1,3 +1,13 @@
+if(location.hash=='#login'){
+    document.getElementById("my").click();
+}
+
+if(localStorage.getItem("status")=='true'){
+    document.getElementById("my").onclick=function(){
+        location.href="user.html";
+    }
+}
+
 // 轮播
 var l=0;
 var n=15;
@@ -147,21 +157,6 @@ $('#reg').click(function(){
         }
     })
 });
-
-var my=document.getElementById("mys");
-my.onclick=function(){
-    if(localStorage.getItem("status")=="true"){
-        my.removeAttribute("href");
-        my.setAttribute("href","./user.html");
-        my.setAttribute("rel","external");
-        my.click();
-    }else{
-        my.removeAttribute("href");
-        my.setAttribute("href","#p3");
-        my.removeAttribute("rel");
-        my.click();
-    }
-}
 
 // 打开搜索
 //解决jqm渲染input后无法添加事件的办法 即使用全局绑定事件
